@@ -78,13 +78,13 @@ class App extends Component {
         <span>
           <button
             onClick={() => this.editItem(item)}
-            className="btn btn-secondary mr-2"
+            className="btn btn-info mr-2"
           >
             Edit
           </button>
           <button
             onClick={() => this.handleDelete(item)}
-            className="btn btn-danger"
+            className="btn btn-danger mr-2"
           >
             Delete
           </button>
@@ -144,13 +144,13 @@ class App extends Component {
   // -I- Start by visual effects to viewer
   render() {
     return (
-      <main className="content">
-        <h1 className="text-black text-uppercase text-center my-4">Task Manager</h1>
+      <main className="content p-3 mb-2 bg-info">
+        <h1 className="text-white text-uppercase text-center my-4">Task Manager</h1>
         <div className="row ">
           <div className="col-md-6 col-sm-10 mx-auto p-0">
             <div className="card p-3">
               <div className="">
-                <button onClick={this.createItem} className="btn btn-primary">
+                <button className="btn btn-warning">
                   Add task
                     </button>
               </div>
@@ -161,6 +161,7 @@ class App extends Component {
             </div>
           </div>
         </div>
+        <footer className="my-3 mb-2 bg-info text-white text-center">Copyright 2023 &copy; karmadi nidhal and gift moyo</footer>
         {this.state.modal ? (
           <Modal
             activeItem={this.state.activeItem}
