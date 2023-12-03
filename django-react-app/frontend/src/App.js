@@ -11,7 +11,6 @@ class App extends Component {
     this.state= {
       modal: false,
       viewCompleted:false,
-      taskList:tasks,
       activeItem: {
         title: "",
         description: "",
@@ -37,16 +36,16 @@ class App extends Component {
     if (item.id) {
       axios
       .put('http://localhost:8000/api/tasks/${item.ad}/', item)
-      .then(res => this.refreshlist())
+      .then(res => this.refreshList())
     }
     axios
     .post("http://localhost:8000/api/tasks/", item)
-    .then( res => this.refreshlist())
+    .then( res => this.refreshList())
   };
   handleDelete = item => {
     axios
       .delete('http://localhost:8000/api/tasks/${item.ad}/')
-      .then(res => this.refreshlist())
+      .then(res => this.refreshList())
   };
   createItem = () => {
     const item = {title: "", modal: !this.state.modal};
@@ -83,7 +82,7 @@ class App extends Component {
 
   renderItems = () => {
     const { viewCompleted } = this.state;
-    const newItems = this.state.todolist.filter(
+    const newItems = this.state.todoList.filter(
       item => item.completed === viewCompleted
     );
     return newItems.map(item => (
